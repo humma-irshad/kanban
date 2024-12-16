@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #00000080;
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  max-width: 50ch;
+  padding: 2em;
+  box-shadow: var(--bs);
+  border: 1px solid var(--clr-dark);
+  border-radius: 0.5em;
+}
+
+.modal > * {
+  margin: 0 0 1rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.input {
+  padding: 0.6em;
+  display: flex;
+  gap: 0.7em;
+  flex-direction: column;
+}
+
+.input label {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+}
+
+.input input,
+textarea {
+  font-size: var(--fs-body);
+  background: transparent;
+  line-height: 1.4em;
+  border: none;
+  border-bottom: 1px solid var(--clr-accent);
+}
+
+.input textarea {
+  resize: vertical;
+  height: 2em;
+}
+
+.input input:focus-visible,
+.input textarea:focus-visible {
+  outline: none;
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5em;
+  padding: 1em;
+}
+
+.actions button {
+  width: 8em;
+  height: 3em;
+  border: none;
+  border-radius: 0.5em;
+  background: var(--clr-accent);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+}
+
+.actions button:hover {
+  transform: scale(1.1);
+  background: transparent;
+  color: var(--clr-accent);
+  border: 1px solid var(--clr-accent);
+}

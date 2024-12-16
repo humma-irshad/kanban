@@ -1,0 +1,41 @@
+<div class="overlay" *ngIf="isModalVisible()">
+  <dialog class="modal" [open]="isModalVisible()">
+    <form>
+      <div class="input">
+        <label for="task">Task</label>
+        <input
+          type="text"
+          id="task"
+          name="task"
+          placeholder="Pick up grocries..."
+          autofocus
+          required
+        />
+      </div>
+      <div class="input">
+        <label for="status">Status</label>
+        <input
+          type="text"
+          id="status"
+          name="status"
+          placeholder="In progress..."
+          required
+        />
+      </div>
+      <div class="input">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Go to nearest convenience store..."
+          rows="4"
+          cols="40"
+        ></textarea>
+      </div>
+      <div class="actions">
+        <button type="submit">Add Card</button>
+        <button class="cancel" (click)="closeModal()">Abort Mission</button>
+      </div>
+    </form>
+  </dialog>
+</div>
