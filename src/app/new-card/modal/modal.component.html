@@ -1,6 +1,9 @@
 <div class="overlay" *ngIf="isModalVisible()">
   <dialog class="modal" [open]="isModalVisible()">
-    <form>
+    <p class="error" [ngClass]="{ hidden: !formInvalid }" *ngIf="formInvalid">
+      Nope, not valid :/
+    </p>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form, $event)">
       <div class="input">
         <label for="task">Task</label>
         <input
@@ -10,6 +13,7 @@
           placeholder="Pick up grocries..."
           autofocus
           required
+          ngModel
         />
       </div>
       <div class="input">
@@ -20,6 +24,7 @@
           name="status"
           placeholder="In progress..."
           required
+          ngModel
         />
       </div>
       <div class="input">
@@ -30,10 +35,11 @@
           placeholder="Go to nearest convenience store..."
           rows="4"
           cols="40"
+          ngModel
         ></textarea>
       </div>
       <div class="actions">
-        <button type="submit">Add Card</button>
+        <button type="submit" [disabled]="!form.valid">Add Card</button>
         <button class="cancel" (click)="closeModal()">Abort Mission</button>
       </div>
     </form>
