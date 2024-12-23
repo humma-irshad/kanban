@@ -1,5 +1,7 @@
+export type TStatus = 'Ideas' | 'Research' | 'TODO' | 'Done';
+
 export interface Icard {
   task: string;
-  status: string;
-  description?: string
+  status: TStatus;
+  description?: string;
 }

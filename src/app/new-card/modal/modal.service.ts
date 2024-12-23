@@ -4,8 +4,18 @@ import { Icard } from './modal.model';
 
 @Injectable({ providedIn: 'root' })
 export class ModalService {
-  constructor() {}
   @Output() cards = signal<Icard[]>([]);
+
+  constructor() {
+    const savedCards = localStorage.getItem('cards');
+    if (savedCards) {
+      try {
+        this.cards.set(JSON.parse(savedCards));
+      } catch (e) {
+        console.error('Error parsing saved cards:', e);
+      }
+    }
+  }
 
   addCard(formData: NgForm) {
     const card: Icard = formData.value;
@@ -15,7 +25,9 @@ export class ModalService {
       return;
     }
 
-    this.cards.set([...this.cards(), card]);
+    const currentCards = this.cards();
+    this.cards.set([...currentCards, card]);
+
     localStorage.setItem('cards', JSON.stringify(this.cards()));
   }
 }

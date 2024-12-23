@@ -1,1 +1,12 @@
-<p>cards works!</p>
+<section class="container">
+  <ng-container *ngIf="cards() as cardList; else noCards">
+    <div class="wrapper" *ngFor="let card of cardList">
+      <h3>{{ card.task }}</h3>
+      <p>{{ card.description }}</p>
+    </div>
+  </ng-container>
+
+  <ng-template #noCards>
+    <p>No cards to display.</p>
+  </ng-template>
+</section>

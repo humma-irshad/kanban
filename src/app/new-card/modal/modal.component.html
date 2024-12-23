@@ -18,14 +18,13 @@
       </div>
       <div class="input">
         <label for="status">Status</label>
-        <input
-          type="text"
-          id="status"
-          name="status"
-          placeholder="In progress..."
-          required
-          ngModel
-        />
+        <select name="status" id="status" required ngModel>
+          <option value="" disabled selected>Select a status</option>
+          <option value="ideas">Ideas</option>
+          <option value="research">Research</option>
+          <option value="todo">TODO</option>
+          <option value="done">Done</option>
+        </select>
       </div>
       <div class="input">
         <label for="description">Description</label>

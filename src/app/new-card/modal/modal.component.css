@@ -44,6 +44,7 @@ form {
 }
 
 .input input,
+select,
 textarea {
   font-size: var(--fs-body);
   background: transparent;
@@ -58,9 +59,14 @@ textarea {
 }
 
 .input input:focus-visible,
-.input textarea:focus-visible {
+.input textarea:focus-visible,
+.input select:focus-visible {
   outline: none;
   border-bottom: 2px solid var(--clr-accent);
+}
+
+select:hover {
+  cursor: pointer;
 }
 
 .actions {
